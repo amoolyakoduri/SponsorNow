@@ -1,0 +1,58 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xmlns:tx="http://www.springframework.org/schema/tx"-->
+<!--       xmlns:context="http://www.springframework.org/schema/context"-->
+<!--       xmlns:jpa="http://www.springframework.org/schema/data/jpa"-->
+<!--       xmlns:task="http://www.springframework.org/schema/task"-->
+<!--       xmlns:aop="http://www.springframework.org/schema/aop"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd-->
+<!--        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd-->
+<!--        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd-->
+<!--        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd-->
+<!--        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd-->
+<!--        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"-->
+<!--       default-lazy-init="true">-->
+
+<!--    <description>SpringJpa配置</description>-->
+
+<!--    &lt;!&ndash; 如果spring用了jpa，并且类型为LocalContainerEntityManagerFactoryBean，则组件注册在此配置文件出现即可，其余配置文件可忽略-->
+<!--           使用component来替代annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入\ &ndash;&gt;-->
+<!--    <context:component-scan base-package="com.example.demo"/>-->
+<!--    <context:annotation-config />-->
+
+<!--&lt;!&ndash;    &lt;!&ndash; spring启动时扫描项目路径下的properties文件,后续用${key }方式取出对应值,这样可以代码解耦和，后续只需修改properties文件即可 &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="locations">&ndash;&gt;-->
+<!--&lt;!&ndash;            <list>&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash; dataSourse连接池相关属性，代码不在此贴出，会放在打包好的项目里面 &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                <value>classpath:springConfig/db.properties</value>&ndash;&gt;-->
+<!--&lt;!&ndash;            </list>&ndash;&gt;-->
+<!--&lt;!&ndash;        </property>&ndash;&gt;-->
+<!--&lt;!&ndash;    </bean>&ndash;&gt;-->
+
+<!--    &lt;!&ndash; 定义实体管理器工厂 &ndash;&gt;-->
+<!--    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">-->
+<!--        <property name="persistenceUnitName" value="myJPA"/>-->
+<!--    </bean>-->
+
+<!--    &lt;!&ndash; 配置事务管理器 &ndash;&gt;-->
+<!--    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">-->
+<!--        <property name="entityManagerFactory" ref="entityManagerFactory" />-->
+<!--    </bean>-->
+<!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
+<!--    <jpa:repositories base-package="com.example.demo"/>-->
+
+<!--    &lt;!&ndash; 重要配置：启用扫描并自动创建代理的功能  &ndash;&gt;-->
+<!--    <jpa:repositories base-package="com.example.demo"  transaction-manager-ref="transactionManager" entity-manager-factory-ref="entityManagerFactory"/>-->
+
+<!--    &lt;!&ndash; Hibernate对Jpa的实现 &ndash;&gt;-->
+<!--    <bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>-->
+
+<!--    &lt;!&ndash; Jpa 事务管理器  &ndash;&gt;-->
+<!--    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">-->
+<!--        <property name="entityManagerFactory" ref="entityManagerFactory"/>-->
+<!--    </bean>-->
+
+<!--    <aop:aspectj-autoproxy />-->
+
+<!--</beans>-->
